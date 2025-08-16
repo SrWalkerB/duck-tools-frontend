@@ -8,7 +8,7 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-  config.withCredentials = true
+  // config.withCredentials = true
   return config
 })
 export { api }
