@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { createFileRoute } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { AlertCircleIcon, CheckCircle2Icon, Circle, CircuitBoard, Download, LoaderIcon, Search, Terminal } from "lucide-react";
+import { AlertCircleIcon, CheckCircle2Icon,Download, LoaderIcon, Search } from "lucide-react";
 import { api } from '@/lib/axios'
 import { CreateDownloadFile } from '@/util/create-download-file'
 import { useMutation } from '@tanstack/react-query'
@@ -39,7 +39,7 @@ function RouteComponent() {
       setHaveVideo(true)
       return response.data as SearchVideoResponse;
     },
-    onError(error, variables, context) {
+    onError(error) {
       console.log(error.cause)
     },
   })
@@ -55,7 +55,7 @@ function RouteComponent() {
       console.log('Video downloaded successfully')
       setHaveVideo(false)
     },
-    onError(error, variables, context) {
+    onError(error) {
       console.log(error.cause)
     },
   })
